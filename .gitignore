@@ -1,0 +1,7 @@
+# macOS / editor
+.DS_Store
+.vscode/
+
+# Third-party template pages used only as design reference (paid template, not ours to publish)
+references/
+content/Service.html

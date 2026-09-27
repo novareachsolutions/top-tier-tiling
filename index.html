@@ -11,12 +11,13 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&amp;display=swap">
   <link rel="stylesheet" href="css/style.css">
+  <link rel="preload" as="image" href="public/images/home-hero-mobile.webp" type="image/webp" media="(max-width: 767px) and (orientation: portrait)" fetchpriority="high">
   <script>document.documentElement.classList.add('js');try{var d=document.documentElement;if(!matchMedia('(prefers-reduced-motion: reduce)').matches){if(sessionStorage.getItem('tt-transition'))d.classList.add('is-entering');else if(!sessionStorage.getItem('tt-intro'))d.classList.add('is-entering','is-intro')}}catch(e){}</script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
   <header class="banner banner--home">
-    <div class="banner__bg" data-sequence="public/sequence/hero/" data-sequence-count="73" data-sequence-focus="0.6" data-sequence-mobile="public/sequence/hero-mobile/" data-sequence-mobile-count="37"><img src="public/images/home-hero.jpg" alt="" fetchpriority="high"></div>
+    <div class="banner__bg" data-sequence="public/sequence/hero/" data-sequence-count="73" data-sequence-focus="0.6" data-sequence-mobile="public/sequence/hero-mobile/" data-sequence-mobile-count="37"><picture><source media="(max-width: 767px) and (orientation: portrait)" srcset="public/images/home-hero-mobile.webp" type="image/webp"><source media="(max-width: 767px) and (orientation: portrait)" srcset="public/images/home-hero-mobile.jpg"><source srcset="public/images/home-hero-1600.webp 1600w, public/images/home-hero.webp 2400w" sizes="100vw" type="image/webp"><img src="public/images/home-hero.jpg" srcset="public/images/home-hero-1600.jpg 1600w, public/images/home-hero.jpg 2400w" sizes="100vw" alt="" fetchpriority="high" decoding="async"></picture></div>
     <div class="container">
       <nav class="navbar" aria-label="Main">
         <a href="index.html" class="logo" aria-label="Top Tier Tiling Group home">

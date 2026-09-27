@@ -373,6 +373,7 @@ h6, .h6 { font-size: 20px; line-height: 1.4; }
 }
 .banner > .container { position: relative; z-index: 1; flex: 1; display: flex; flex-direction: column; }
 .banner__bg { position: absolute; inset: 0; overflow: hidden; }
+.banner__bg picture { display: contents; }
 .banner__bg img { width: 100%; height: 100%; object-fit: cover; }
 .hero-seq,
 .showcase__media .hero-seq { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0; transition: opacity .3s; }
@@ -1079,7 +1080,7 @@ html.is-entering::after {
   inset: 0;
   z-index: 300;
   background: #f4f2ee url("../public/images/logo-horizontal.png") center / 200px auto no-repeat;
-  animation: curtain-fallback 0s 3s forwards;
+  animation: curtain-fallback 0s 2s forwards;
 }
 @keyframes curtain-fallback { to { visibility: hidden; } }
 
@@ -1217,8 +1218,29 @@ html.is-entering::after {
   .banner { min-height: 560px; margin: 8px; }
   .banner--home { min-height: 720px; }
   .banner__content { padding-top: 96px; }
-  .hero { padding-top: 88px; gap: 32px; }
-  .hero__foot { padding-top: 24px; }
+  /* Home hero on phones: exactly one screen — photo fills it, copy and buttons anchored at the bottom,
+     clear of the fixed call bar. The stats panel is hidden here: the same facts sit in the stats row below. */
+  .banner--home {
+    min-height: calc(100svh - 88px - env(safe-area-inset-bottom, 0px));
+    padding-bottom: 24px;
+  }
+  .banner--home .banner__bg img { object-position: center; }
+  .banner--home .banner__bg::after {
+    background:
+      linear-gradient(180deg, rgb(20 22 24 / .45) 0%, rgb(20 22 24 / 0) 20%),
+      linear-gradient(0deg, rgb(20 22 24 / .94) 0%, rgb(20 22 24 / .7) 34%, rgb(20 22 24 / 0) 66%);
+  }
+  .hero { margin-top: auto; padding-top: 32px; gap: 20px; }
+  .hero__head { gap: 16px; }
+  .hero__title { font-size: clamp(36px, 10.4vw, 48px); line-height: .98; }
+  .hero__foot { gap: 20px; padding-top: 20px; }
+  .hero__intro { gap: 20px; }
+  .hero__intro .banner__lead { font-size: 15px; line-height: 1.55; }
+  .hero__intro .actions { flex-wrap: nowrap; gap: 8px; }
+  .hero__intro .actions .btn { gap: 10px; padding: 12px 14px 12px 16px; font-size: 14px; }
+  .banner--home .hero-card { display: none; }
+  .banner .eyebrow { font-size: 12px; letter-spacing: .12em; gap: 10px; }
+  .banner .eyebrow::before { width: 20px; }
   .showcase { margin-inline: 8px; min-height: 520px; }
   .showcase .container { padding-block: 48px; }
   .section--dark, .footer { margin-inline: 8px; }
@@ -1285,6 +1307,10 @@ html.is-entering::after {
   .mobile-bar img { width: 18px; height: 18px; }
   .mobile-bar__call { border: 1px solid var(--stroke); }
   .mobile-bar__quote { background: var(--black); color: var(--white); }
+}
+
+@media (max-width: 399px) {
+  .hero__intro .actions .btn--ghost { display: none; }
 }
 
 /* ---------- 14. Utilities ---------- */

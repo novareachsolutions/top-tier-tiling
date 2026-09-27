@@ -282,13 +282,19 @@
        frame set; data-saver and 2G connections keep the still image. */
     const conn = navigator.connection;
     const lowData = !!conn && (conn.saveData || /2g/.test(conn.effectiveType || ''));
-    const phone = window.matchMedia('(max-width: 767px) and (orientation: portrait)').matches;
+    const PHONE = '(max-width: 767px) and (orientation: portrait)';
+    const phoneQuery = window.matchMedia(PHONE);
+    const phone = phoneQuery.matches;
     const sequenceFor = (host, { eager = false } = {}) => {
       if (!host || !host.dataset.sequence || lowData) return null;
       const d = host.dataset;
-      return createSequence(host, phone
-        ? { path: d.sequenceMobile, count: Number(d.sequenceMobileCount), focusX: 0.5, eager }
-        : { path: d.sequence, count: Number(d.sequenceCount), focusX: Number(d.sequenceFocus || 0.5), eager });
+      return createSequence(host, {
+        eager,
+        sets: {
+          desktop: { path: d.sequence, count: Number(d.sequenceCount), focusX: Number(d.sequenceFocus || 0.5) },
+          phone: { path: d.sequenceMobile, count: Number(d.sequenceMobileCount), focusX: 0.5 },
+        },
+      });
     };
 
     // Behind a curtain (logo intro / page transition) the intro waits until the curtain lifts.
@@ -306,7 +312,12 @@
     if (banner) {
       const bg = $('.banner__bg', banner);
       // Home hero: a camera move played by scroll (frames start loading straight away).
-      sequence = sequenceFor(bg, { eager: true });
+      sequence = sequenceFor(bg, { eager: !phone });
+      if (sequence && phone) {
+        const begin = () => sequence.start();
+        window.addEventListener('scroll', begin, { once: true, passive: true });
+        window.addEventListener('touchstart', begin, { once: true, passive: true });
+      }
       const content = $('.hero, .banner__content', banner);
       const title = $('h1', banner);
       [content, ...$$('[data-reveal]', banner)].forEach((el) => el && unreveal(el));
@@ -387,24 +398,28 @@
     });
 
     /* ---- Home hero: pin it and let the scroll drive the camera ----
-       The copy steps aside early so the move reads cleanly. If the hero is taller than the
-       screen (small phones), it pins by its bottom edge so nothing is cut off. */
+       Desktop: the copy steps aside early so the move reads cleanly.
+       Phones: the image fills the top of the screen, so the hero pins from the top, the copy
+       stays put, and the move is shorter. */
     if (banner && sequence) {
-      const state = { progress: 0 };
-      const fitsScreen = () => banner.offsetHeight + 24 <= window.innerHeight;
-      gsap.timeline({
-        scrollTrigger: {
-          trigger: banner,
-          start: () => (fitsScreen() ? 'top 12px' : 'bottom bottom-=8'),
-          end: () => `+=${Math.round(window.innerHeight * (window.innerWidth < 768 ? 1.1 : 1.4))}`,
-          pin: true,
-          scrub: window.innerWidth < 768 ? true : 0.6,
-          invalidateOnRefresh: true,
-        },
-      })
-        .to(state, { progress: 1, ease: 'none', duration: 1, onUpdate: () => sequence.set(state.progress) }, 0)
-        .to($('.hero', banner), { y: -120, autoAlpha: 0, ease: 'power1.in', duration: 0.45 }, 0.08)
-        .to(banner, { '--scrim': 0.35, ease: 'none', duration: 0.4 }, 0.3);
+      mm.add({ onPhone: PHONE, onDesktop: `not all and ${PHONE}` }, (context) => {
+        const { onPhone } = context.conditions;
+        const state = { progress: 0 };
+        const tl = gsap.timeline({
+          scrollTrigger: {
+            trigger: banner,
+            start: onPhone ? 'top 8px' : 'top 12px',
+            end: () => `+=${Math.round(window.innerHeight * (onPhone ? 0.9 : 1.4))}`,
+            pin: true,
+            scrub: onPhone ? true : 0.6,
+            invalidateOnRefresh: true,
+          },
+        }).to(state, { progress: 1, ease: 'none', duration: 1, onUpdate: () => sequence.set(state.progress) }, 0);
+        if (!onPhone) {
+          tl.to($('.hero', banner), { y: -120, autoAlpha: 0, ease: 'power1.in', duration: 0.45 }, 0.08)
+            .to(banner, { '--scrim': 0.35, ease: 'none', duration: 0.4 }, 0.3);
+        }
+      });
     }
 
     /* ---- Tiles we supply: pinned copy while tile textures layer in ---- */
@@ -514,75 +529,102 @@
     /* Frame-sequence player: draws the nearest loaded frame to a canvas, cover-fitted like the <img>.
        The first frame loads straight away; the rest stream in after page load, coarse to fine,
        so scrubbing works early and sharpens as frames arrive. */
-    function createSequence(host, { path, count, focusX, eager }) {
-      const src = (i) => `${path}${String(i + 1).padStart(4, '0')}.webp`;
+    function createSequence(host, { sets, eager }) {
       const canvas = document.createElement('canvas');
       canvas.className = 'hero-seq';
       canvas.setAttribute('aria-hidden', 'true');
-      $('img', host).after(canvas);
+      ($('picture', host) || $('img', host)).after(canvas);
       const ctx = canvas.getContext('2d');
-      const frames = [];
+      const cache = { desktop: [], phone: [] }; // frames per set, kept if the screen switches back
+      let setName = phoneQuery.matches ? 'phone' : 'desktop';
+      let progress = 0;
       let current = 0;
+      let drawn = false;
+      let wantActive = false;
+      let started = false;
+      const set = () => sets[setName];
+      const frames = () => cache[setName];
+      const syncActive = () => canvas.classList.toggle('is-active', wantActive && drawn);
 
-      const ready = (i) => frames[i] && frames[i].naturalWidth > 0;
+      const ready = (i) => frames()[i] && frames()[i].naturalWidth > 0;
       const draw = () => {
+        const { count, focusX } = set();
         let frame = null;
         for (let d = 0; d < count && !frame; d += 1) {
-          if (ready(current - d)) frame = frames[current - d];
-          else if (ready(current + d)) frame = frames[current + d];
+          if (ready(current - d)) frame = frames()[current - d];
+          else if (ready(current + d)) frame = frames()[current + d];
         }
-        if (!frame) return;
+        if (!frame || !canvas.width || !canvas.height) return;
         const scale = Math.max(canvas.width / frame.naturalWidth, canvas.height / frame.naturalHeight);
         const w = frame.naturalWidth * scale;
         const h = frame.naturalHeight * scale;
         ctx.drawImage(frame, (canvas.width - w) * focusX, (canvas.height - h) / 2, w, h); // matches the <img> crop
+        if (!drawn) { drawn = true; syncActive(); }
       };
+      // Size the bitmap to the box it's shown in, whenever that box changes (rotation, breakpoints,
+      // pinning). A stale size is what makes the picture look squashed.
       const resize = () => {
         const dpr = Math.min(window.devicePixelRatio || 1, 2);
         const width = Math.round(host.clientWidth * dpr);
         const height = Math.round(host.clientHeight * dpr);
-        if (width === canvas.width && height === canvas.height) return; // e.g. mobile address bar moving
+        if (!width || !height || (width === canvas.width && height === canvas.height)) return;
         canvas.width = width;
         canvas.height = height;
         draw();
       };
       const load = (i) => new Promise((resolve) => {
-        if (frames[i]) { resolve(); return; }
+        const list = frames();
+        if (list[i]) { resolve(); return; }
+        const { path } = set();
         const img = new Image();
         img.decoding = 'async';
-        img.onload = () => { if (Math.abs(i - current) < 3) draw(); resolve(); };
+        img.onload = () => { if (list === frames() && Math.abs(i - current) < 3) draw(); resolve(); };
         img.onerror = resolve;
-        img.src = src(i);
-        frames[i] = img;
+        img.src = `${path}${String(i + 1).padStart(4, '0')}.webp`;
+        list[i] = img;
       });
       const loadRest = async () => {
+        const { count } = set();
         const order = [];
         [8, 4, 2, 1].forEach((step) => { for (let i = 0; i < count; i += step) if (!order.includes(i)) order.push(i); });
         for (let i = 0; i < order.length; i += 6) await Promise.all(order.slice(i, i + 6).map(load));
       };
+      const begin = () => load(0).then(() => { resize(); canvas.classList.add('is-ready'); draw(); });
 
-      let started = false;
       const start = () => {
         if (started) return;
         started = true;
-        load(0).then(() => { resize(); canvas.classList.add('is-ready'); loadRest(); });
+        begin().then(loadRest);
       };
       if (eager) {
         // First frame now; the rest once the page itself has finished loading.
         started = true;
-        load(0).then(() => { resize(); canvas.classList.add('is-ready'); });
+        begin();
         if (document.readyState === 'complete') loadRest();
         else window.addEventListener('load', loadRest, { once: true });
       }
-      window.addEventListener('resize', resize);
+
+      // Screen crosses between phone and desktop: swap frame sets, keeping the scroll position.
+      phoneQuery.addEventListener('change', (e) => {
+        setName = e.matches ? 'phone' : 'desktop';
+        drawn = false;
+        syncActive();
+        current = Math.round(progress * (set().count - 1));
+        resize();
+        if (started) begin().then(loadRest);
+      });
+      if ('ResizeObserver' in window) new ResizeObserver(resize).observe(host);
+      else window.addEventListener('resize', resize);
 
       return {
         canvas,
         start,
-        set(progress) {
+        set(value) {
           // Until the scroll starts, the still <img> shows; the canvas takes over once there's motion to play.
-          canvas.classList.toggle('is-active', progress > 0.004);
-          const i = Math.round(progress * (count - 1));
+          progress = value;
+          wantActive = value > 0.004;
+          syncActive();
+          const i = Math.round(value * (set().count - 1));
           if (i !== current) { current = i; draw(); }
         },
       };
@@ -650,13 +692,17 @@
       curtain.style.transform = 'translateY(0%)';
 
       // Hold on the logo while the page loads (a beat longer on the first visit), capped so it never drags.
-      const pageLoaded = new Promise((resolve) => {
-        if (document.readyState === 'complete') resolve();
-        else window.addEventListener('load', resolve, { once: true });
-      });
-      const minHold = new Promise((resolve) => { setTimeout(resolve, firstVisit ? 1200 : 300); });
-      const maxHold = new Promise((resolve) => { setTimeout(resolve, firstVisit ? 2800 : 1600); });
-      fill(0.85, firstVisit ? 1.2 : 0.3);
+      // Ready once the banner image (whichever size the browser picked) has decoded.
+      const heroImg = $('.banner__bg img');
+      const pageLoaded = heroImg && heroImg.decode
+        ? heroImg.decode().catch(() => {})
+        : new Promise((resolve) => {
+          if (document.readyState === 'complete') resolve();
+          else window.addEventListener('load', resolve, { once: true });
+        });
+      const minHold = new Promise((resolve) => { setTimeout(resolve, firstVisit ? 700 : 250); });
+      const maxHold = new Promise((resolve) => { setTimeout(resolve, firstVisit ? 1600 : 1200); });
+      fill(0.85, firstVisit ? 0.7 : 0.25);
 
       Promise.race([Promise.all([pageLoaded, minHold]), maxHold]).then(() => {
         fill(1, 0.3);

@@ -11,12 +11,12 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&amp;display=swap">
   <link rel="stylesheet" href="css/style.css">
-  <script>document.documentElement.classList.add('js')</script>
+  <script>document.documentElement.classList.add('js');try{var d=document.documentElement;if(!matchMedia('(prefers-reduced-motion: reduce)').matches){if(sessionStorage.getItem('tt-transition'))d.classList.add('is-entering');else if(!sessionStorage.getItem('tt-intro'))d.classList.add('is-entering','is-intro')}}catch(e){}</script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
   <header class="banner banner--home">
-    <div class="banner__bg"><img src="public/images/home-hero.jpg" alt=""></div>
+    <div class="banner__bg" data-sequence="public/sequence/hero/" data-sequence-count="73" data-sequence-focus="0.6" data-sequence-mobile="public/sequence/hero-mobile/" data-sequence-mobile-count="37"><img src="public/images/home-hero.jpg" alt="" fetchpriority="high"></div>
     <div class="container">
       <nav class="navbar" aria-label="Main">
         <a href="index.html" class="logo" aria-label="Top Tier Tiling Group home">
@@ -45,14 +45,17 @@
         </div>
         <button class="nav-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="nav-links"><span></span><span></span><span></span></button>
       </nav>
-      <div class="banner__content">
-        <div class="banner__title" data-reveal>
+      <div class="hero" data-reveal>
+        <div class="hero__head">
           <p class="eyebrow">Tiling &amp; Renovations · Est. 2017</p>
-          <h1>Tiling, Waterproofing and Renovations in Melbourne</h1>
+          <h1 class="hero__title">Tiling, Waterproofing and Renovations <em>in Melbourne</em></h1>
+        </div>
+        <div class="hero__foot">
+        <div class="hero__intro">
           <p class="banner__lead">Whether it's a full bathroom renovation or a laundry that needs re-tiling, tiling, waterproofing and screeding are coordinated by the one team — a single point of contact from the first look at the job to the finished result.</p>
           <div class="actions"><a href="contact.html" class="btn btn--light"><span class="btn__label"><span>Request a Quote</span><span aria-hidden="true">Request a Quote</span></span><span class="btn__icon"><img src="public/icons/arrow-up-right.svg" alt=""></span></a><a href="tel:0423626044" class="btn btn--ghost"><span class="btn__label"><span>Call 0423 626 044</span><span aria-hidden="true">Call 0423 626 044</span></span><span class="btn__icon btn__icon--still"><img src="public/icons/phone.svg" alt=""></span></a></div>
         </div>
-        <div class="hero-card" data-reveal style="--delay:.15s">
+        <div class="hero-card">
           <p>Tiling to full renovations</p>
           <div class="hero-card__stat"><strong>6</strong><p>Services, handled by one team</p></div>
           <ul class="check-list">
@@ -60,6 +63,7 @@
             <li>Quality workmanship as the core focus</li>
             <li>Reliable timelines, confirmed in the quote</li>
           </ul>
+        </div>
         </div>
       </div>
     </div>
@@ -83,12 +87,12 @@
       <div class="section-head section-head--split" data-reveal><div class="section-head__body"><p class="eyebrow">/Our services</p><h2 class="h3">Tiling and renovation services across Melbourne</h2><p>Book a single service, or bring a few together for a full bathroom, laundry or kitchen renovation.</p></div><a href="services.html" class="btn btn--dark"><span class="btn__label"><span>See all services</span><span aria-hidden="true">See all services</span></span><span class="btn__icon"><img src="public/icons/arrow-up-right.svg" alt=""></span></a></div>
       <div class="accordion-services" data-accordion="always">
         <div class="svc-media" data-reveal>
-            <img src="public/images/service-tiling.jpg" alt="" class="is-active" data-accordion-image>
-            <img src="public/images/service-waterproofing.jpg" alt="" loading="lazy" data-accordion-image>
-            <img src="public/images/service-screeding.jpg" alt="" loading="lazy" data-accordion-image>
-            <img src="public/images/service-bathroom-renovations.jpg" alt="" loading="lazy" data-accordion-image>
-            <img src="public/images/service-laundry-renovations.jpg" alt="" loading="lazy" data-accordion-image>
-            <img src="public/images/service-kitchen-renovations.jpg" alt="" loading="lazy" data-accordion-image>
+            <img src="public/images/work-patterned-verandah.jpg" alt="" class="is-active" data-accordion-image>
+            <img src="public/images/svc-waterproofing-membrane.jpg" alt="" loading="lazy" data-accordion-image>
+            <img src="public/images/svc-screed-falls.jpg" alt="" loading="lazy" data-accordion-image>
+            <img src="public/images/work-stone-ledge.jpg" alt="" loading="lazy" data-accordion-image>
+            <img src="public/images/svc-laundry.jpg" alt="" loading="lazy" data-accordion-image>
+            <img src="public/images/proj-travertine-splashback-werribee.jpg" alt="" loading="lazy" data-accordion-image>
         </div>
         <div class="svc-list" data-reveal style="--delay:.1s">
             <div class="svc-item is-open" data-accordion-item>
@@ -120,15 +124,28 @@
     </div>
   </section>
 
+  <div class="marquee" aria-hidden="true">
+    <div class="marquee__track" data-marquee="-1"><span>Tiling</span><span>Waterproofing</span><span>Screeding</span><span>Bathrooms</span><span>Laundries</span><span>Kitchens</span><span>Tiling</span><span>Waterproofing</span><span>Screeding</span></div>
+    <div class="marquee__track marquee__track--outline" data-marquee="1"><span>Bathrooms</span><span>Laundries</span><span>Kitchens</span><span>Tiling</span><span>Waterproofing</span><span>Screeding</span><span>Bathrooms</span><span>Laundries</span><span>Kitchens</span></div>
+  </div>
+
   <section class="section pt-half">
     <div class="container">
       <div class="choose">
         <div class="choose__main">
           <div class="section-head section-head--stack" data-reveal><p class="eyebrow">/Our approach</p><div class="section-head__body"><h2 class="h3">How we approach a job</h2><p>Quality workmanship. Reliable timelines. Tiling and renovations done properly from start to finish.</p></div></div>
-          <div class="grid-2" data-stagger><article class="card"><span class="icon-badge"><img src="public/icons/award.svg" alt=""></span><div class="card__text"><h3 class="h5">Established 2017</h3><p>Operating since 2017, across tiling, waterproofing, screeding and renovation work</p></div></article><article class="card"><span class="icon-badge"><img src="public/icons/users.svg" alt=""></span><div class="card__text"><h3 class="h5">Same team throughout</h3><p>A team of five, so the same people handle a job from start to finish</p></div></article><article class="card"><span class="icon-badge"><img src="public/icons/tool.svg" alt=""></span><div class="card__text"><h3 class="h5">No trades to juggle</h3><p>One team across each stage of a wet-area job, instead of you coordinating separate trades</p></div></article><article class="card"><span class="icon-badge"><img src="public/icons/clock.svg" alt=""></span><div class="card__text"><h3 class="h5">Kept to schedule</h3><p>Work scheduled to an agreed timeframe, and kept to it</p></div></article></div>
+          <div class="grid-2" data-stagger><article class="card"><span class="card__num">01</span><div class="card__text"><h3 class="h5">Established 2017</h3><p>Operating since 2017, across tiling, waterproofing, screeding and renovation work</p></div></article><article class="card"><span class="card__num">02</span><div class="card__text"><h3 class="h5">Same team throughout</h3><p>A team of five, so the same people handle a job from start to finish</p></div></article><article class="card"><span class="card__num">03</span><div class="card__text"><h3 class="h5">No trades to juggle</h3><p>One team across each stage of a wet-area job, instead of you coordinating separate trades</p></div></article><article class="card"><span class="card__num">04</span><div class="card__text"><h3 class="h5">Kept to schedule</h3><p>Work scheduled to an agreed timeframe, and kept to it</p></div></article></div>
         </div>
-        <div class="media choose__media" data-reveal><img src="public/images/home-recent-work.jpg" alt="Spreading tile adhesive with a notched trowel" loading="lazy"></div>
+        <div class="media choose__media" data-reveal><img src="public/images/proj-pedestal-pavers.jpg" alt="Large-format pavers set on a pedestal tiling system" loading="lazy"></div>
       </div>
+    </div>
+  </section>
+
+  <section class="showcase" aria-label="Our standard">
+    <div class="showcase__media" data-sequence="public/sequence/showcase/" data-sequence-count="49" data-sequence-mobile="public/sequence/showcase-mobile/" data-sequence-mobile-count="37"><img src="public/images/home-showcase.jpg" alt="" loading="lazy"></div>
+    <div class="container">
+      <p class="eyebrow">Quality workmanship · Reliable timelines</p>
+      <p class="showcase__title" data-split>Tiling and renovations done properly from start to finish.</p>
     </div>
   </section>
 
@@ -141,7 +158,7 @@
     </div>
   </section>
 
-  <section class="section">
+  <section class="section tile-story" data-tile-story data-bg="#f1eee8">
     <div class="container">
       <div class="about about--reverse">
         <div class="about__text" data-reveal>
@@ -152,7 +169,12 @@
           <div class="tags"><span>Ceramic</span><span>Porcelain</span><span>Mosaic</span><span>Natural stone</span></div>
           <a href="tiling.html" class="back-link">More on tiling services and tile options <img src="public/icons/arrow-up-right.svg" alt=""></a>
         </div>
-        <div class="media" data-reveal><img src="public/images/home-tile-ranges.jpg" alt="Natural stone travertine tiles" loading="lazy"></div>
+        <div class="tile-stack">
+          <div class="media" data-reveal><img src="public/images/home-tile-ranges.jpg" alt="Natural stone travertine tiles" loading="lazy"></div>
+          <div class="tile-stack__layer" aria-hidden="true"><img src="public/images/work-brick-splashback.jpg" alt="" loading="lazy"></div>
+          <div class="tile-stack__layer" aria-hidden="true"><img src="public/images/cta-finished-work.jpg" alt="" loading="lazy"></div>
+          <div class="tile-stack__layer" aria-hidden="true"><img src="public/images/banner-projects.jpg" alt="" loading="lazy"></div>
+        </div>
       </div>
     </div>
   </section>
@@ -166,7 +188,7 @@
           <p>Top Tier Tiling Group works across tiling, waterproofing, screeding and renovation projects throughout Melbourne. Jobs can be booked as individual services or combined into a bathroom, laundry or kitchen renovation, with the same team handling the connected wet-area work.</p>
           <a href="about.html" class="btn btn--dark"><span class="btn__label"><span>More about the business</span><span aria-hidden="true">More about the business</span></span><span class="btn__icon"><img src="public/icons/arrow-up-right.svg" alt=""></span></a>
         </div>
-        <div class="media" data-reveal><img src="public/images/team-workmanship.jpg" alt="Tiler laying floor tiles" loading="lazy"></div>
+        <div class="media" data-reveal><img src="public/images/proj-fan-cobblestone-driveway-clifton-springs.jpg" alt="Fan-pattern cobblestone driveway at a new home in Clifton Springs" loading="lazy"></div>
       </div>
     </div>
   </section>
@@ -185,7 +207,7 @@
           <div class="actions"><a href="contact.html" class="btn btn--light"><span class="btn__label"><span>Request a Quote</span><span aria-hidden="true">Request a Quote</span></span><span class="btn__icon"><img src="public/icons/arrow-up-right.svg" alt=""></span></a><a href="tel:0423626044" class="btn btn--ghost"><span class="btn__label"><span>Call 0423 626 044</span><span aria-hidden="true">Call 0423 626 044</span></span><span class="btn__icon btn__icon--still"><img src="public/icons/phone.svg" alt=""></span></a></div>
           <ul class="check-list check-list--row"><li>Operating since 2017</li><li>Team of five on the tools</li><li>Timelines confirmed in the quote</li></ul>
         </div>
-        <div class="media" data-reveal style="--delay:.15s"><img src="public/images/cta-finished-work.jpg" alt="Close-up of mosaic tile work" loading="lazy"></div>
+        <div class="media" data-reveal style="--delay:.15s"><img src="public/images/proj-natural-stone-clifton-springs.jpg" alt="Natural stone feature wall in an alfresco area, Clifton Springs" loading="lazy"></div>
       </div>
     </div>
   </section>
@@ -241,8 +263,10 @@
       <div class="footer__bottom">
         <p>&copy; <span data-year>2026</span> Top Tier Tiling Group. ABN 18 621 525 687.</p>
         <p><a href="privacy-policy.html">Privacy Policy</a> · <a href="terms.html">Terms</a> · <a href="image-credits.html">Image credits</a></p>
+        <p class="footer__credit">Developed by <a href="https://www.novareachsolutions.com/" target="_blank" rel="noopener">NovaReach Solutions</a></p>
       </div>
     </div>
+    <p class="footer__mark" aria-hidden="true">Top Tier</p>
   </footer>
 
   <div class="mobile-bar">
@@ -250,6 +274,10 @@
     <a href="contact.html" class="mobile-bar__quote">Request a Quote</a>
   </div>
 
-  <script src="js/main.js"></script>
+  <script src="js/vendor/gsap.min.js" defer></script>
+  <script src="js/vendor/ScrollTrigger.min.js" defer></script>
+  <script src="js/vendor/lenis.min.js" defer></script>
+  <script src="js/vendor/motion.js" defer></script>
+  <script src="js/main.js" defer></script>
 </body>
 </html>

@@ -11,12 +11,12 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&amp;display=swap">
   <link rel="stylesheet" href="css/style.css">
-  <script>document.documentElement.classList.add('js')</script>
+  <script>document.documentElement.classList.add('js');try{var d=document.documentElement;if(!matchMedia('(prefers-reduced-motion: reduce)').matches){if(sessionStorage.getItem('tt-transition'))d.classList.add('is-entering');else if(!sessionStorage.getItem('tt-intro'))d.classList.add('is-entering','is-intro')}}catch(e){}</script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
   <header class="banner">
-    <div class="banner__bg"><img src="public/images/banner-projects.jpg" alt=""></div>
+    <div class="banner__bg"><img src="public/images/banner-projects-stone.jpg" alt="" fetchpriority="high"></div>
     <div class="container">
       <nav class="navbar" aria-label="Main">
         <a href="index.html" class="logo" aria-label="Top Tier Tiling Group home">
@@ -51,7 +51,7 @@
           <h1>Projects</h1>
         </div>
         <div class="banner__side" data-reveal style="--delay:.15s">
-          <p class="banner__lead">A portfolio of tiling, waterproofing and renovation jobs will be added here as genuine project photos and details come through.</p>
+          <p class="banner__lead">Recent tiling and stone jobs from the team, with the suburb for each where it’s known.</p>
           
         </div>
       </div>
@@ -61,8 +61,15 @@
   <main id="main">
   <section class="section">
     <div class="container">
-      <div class="section-head" data-reveal><p class="eyebrow">/Portfolio</p><div class="section-head__body"><h2 class="h3">What each project will show</h2><p>Once real project content is ready, each entry here will include a project title, location (once confirmed), the services used, a short scope of work, and a gallery of photos.</p></div></div>
-      <div class="tiles" data-stagger><article class="tile"><img src="public/images/project-bathroom-renovation.svg" alt="" loading="lazy"><div class="tile__inner"><h3 class="h5">Bathroom renovation</h3><p>Scope of work and photos to be added.</p></div></article><article class="tile"><img src="public/images/project-kitchen-splashback.svg" alt="" loading="lazy"><div class="tile__inner"><h3 class="h5">Kitchen splashback tiling</h3><p>Scope of work and photos to be added.</p></div></article><article class="tile"><img src="public/images/project-laundry-renovation.svg" alt="" loading="lazy"><div class="tile__inner"><h3 class="h5">Laundry renovation</h3><p>Scope of work and photos to be added.</p></div></article></div>
+      <div class="section-head" data-reveal><p class="eyebrow">/Portfolio</p><div class="section-head__body"><h2 class="h3">Recent projects</h2><p>Each entry shows the job and the suburb it was in. Full scopes of work and more photos will be added over time.</p></div></div>
+      <div class="projects"><article class="project"><div class="project__media"><div class="media project__main"><img src="public/images/proj-fan-cobblestone-driveway-clifton-springs.jpg" alt="Fan-pattern cobblestone driveway at a new home in Clifton Springs" loading="lazy"></div><div class="media project__inset" data-depth="1"><img src="public/images/proj-fan-cobblestone-driveway-detail.jpg" alt="Close-up of the fan-pattern cobblestones" loading="lazy"></div></div><div class="project__meta" data-reveal><span class="project__num">01</span><h3 class="h3"><a href="project-fan-cobblestone-driveway.html" class="project__link">Fan cobblestone driveway</a></h3><p class="project__place">Clifton Springs</p><span class="project__more" aria-hidden="true">View project <img src="public/icons/arrow-up-right.svg" alt=""></span></div></article><article class="project"><div class="project__media"><div class="media project__main"><img src="public/images/proj-natural-stone-clifton-springs.jpg" alt="Natural stone feature wall in an alfresco area, Clifton Springs" loading="lazy"></div></div><div class="project__meta" data-reveal><span class="project__num">02</span><h3 class="h3"><a href="project-natural-stone.html" class="project__link">Natural stone</a></h3><p class="project__place">Clifton Springs</p><span class="project__more" aria-hidden="true">View project <img src="public/icons/arrow-up-right.svg" alt=""></span></div></article><article class="project project--wide"><div class="project__media"><div class="media project__main"><img src="public/images/proj-travertine-splashback-werribee.jpg" alt="Travertine splashback in a new kitchen, Werribee" loading="lazy"></div></div><div class="project__meta" data-reveal><span class="project__num">03</span><h3 class="h3"><a href="project-travertine-splashback.html" class="project__link">Travertine splashback</a></h3><p class="project__place">Werribee</p><span class="project__more" aria-hidden="true">View project <img src="public/icons/arrow-up-right.svg" alt=""></span></div></article><article class="project"><div class="project__media"><div class="media project__main"><img src="public/images/proj-strip-drain-hawthorn.jpg" alt="Tiled floor with a tile insert strip drain, Hawthorn" loading="lazy"></div></div><div class="project__meta" data-reveal><span class="project__num">04</span><h3 class="h3"><a href="project-tile-insert-strip-drain.html" class="project__link">Tile insert strip drain</a></h3><p class="project__place">Hawthorn</p><span class="project__more" aria-hidden="true">View project <img src="public/icons/arrow-up-right.svg" alt=""></span></div></article><article class="project"><div class="project__media"><div class="media project__main"><img src="public/images/proj-pedestal-pavers.jpg" alt="Large-format pavers set on a pedestal tiling system" loading="lazy"></div></div><div class="project__meta" data-reveal><span class="project__num">05</span><h3 class="h3"><a href="project-pedestal-pavers.html" class="project__link">Pedestal tiling system pavers</a></h3><span class="project__more" aria-hidden="true">View project <img src="public/icons/arrow-up-right.svg" alt=""></span></div></article></div>
+    </div>
+  </section>
+
+  <section class="section pt-0" aria-labelledby="more-work">
+    <div class="container">
+      <div class="section-head section-head--stack" data-reveal><p class="eyebrow">/On the tools</p><div class="section-head__body"><h2 class="h3" id="more-work">More recent work</h2></div></div>
+      <div class="work-strip"><div class="media"><img src="public/images/work-brick-splashback.jpg" alt="Close-up of the travertine splashback, laid in a brick pattern above a stone benchtop" loading="lazy"></div><div class="media"><img src="public/images/work-stone-ledge.jpg" alt="Stone-look wall tiles finished with a mitred ledge" loading="lazy"></div><div class="media"><img src="public/images/work-curved-wall-tiling.jpg" alt="Curved shower wall part-way through tiling, with levelling clips in place" loading="lazy"></div><div class="media"><img src="public/images/work-patterned-verandah.jpg" alt="Patterned encaustic-style tiles laid across a verandah" loading="lazy"></div></div>
     </div>
   </section>
 
@@ -104,8 +111,10 @@
       <div class="footer__bottom">
         <p>&copy; <span data-year>2026</span> Top Tier Tiling Group. ABN 18 621 525 687.</p>
         <p><a href="privacy-policy.html">Privacy Policy</a> · <a href="terms.html">Terms</a> · <a href="image-credits.html">Image credits</a></p>
+        <p class="footer__credit">Developed by <a href="https://www.novareachsolutions.com/" target="_blank" rel="noopener">NovaReach Solutions</a></p>
       </div>
     </div>
+    <p class="footer__mark" aria-hidden="true">Top Tier</p>
   </footer>
 
   <div class="mobile-bar">
@@ -113,6 +122,10 @@
     <a href="contact.html" class="mobile-bar__quote">Request a Quote</a>
   </div>
 
-  <script src="js/main.js"></script>
+  <script src="js/vendor/gsap.min.js" defer></script>
+  <script src="js/vendor/ScrollTrigger.min.js" defer></script>
+  <script src="js/vendor/lenis.min.js" defer></script>
+  <script src="js/vendor/motion.js" defer></script>
+  <script src="js/main.js" defer></script>
 </body>
 </html>

@@ -11,7 +11,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&amp;display=swap">
   <link rel="stylesheet" href="css/style.css">
-  <script>document.documentElement.classList.add('js')</script>
+  <script>document.documentElement.classList.add('js');try{var d=document.documentElement;if(!matchMedia('(prefers-reduced-motion: reduce)').matches){if(sessionStorage.getItem('tt-transition'))d.classList.add('is-entering');else if(!sessionStorage.getItem('tt-intro'))d.classList.add('is-entering','is-intro')}}catch(e){}</script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -55,7 +55,7 @@
           <div class="prose"><p class="eyebrow">/Renovations</p><h1 class="h2">Kitchen Renovations in Melbourne</h1><p class="lead">Splashback and floor tiling planned around the wider renovation, so the tiled areas are ready when the next stage of the kitchen is due to begin.</p></div>
           <div class="actions"><a href="contact.html" class="btn btn--dark"><span class="btn__label"><span>Request a Quote</span><span aria-hidden="true">Request a Quote</span></span><span class="btn__icon"><img src="public/icons/arrow-up-right.svg" alt=""></span></a><a href="tel:0423626044" class="btn btn--ghost"><span class="btn__label"><span>Call 0423 626 044</span><span aria-hidden="true">Call 0423 626 044</span></span><span class="btn__icon btn__icon--still"><img src="public/icons/phone.svg" alt=""></span></a></div>
         </div>
-        <div class="media" data-reveal><img src="public/images/kitchen-splashback.jpg" alt="Kitchen splashback finished in glossy tiles" loading="lazy"></div>
+        <div class="media" data-reveal><img src="public/images/proj-travertine-splashback-werribee.jpg" alt="Travertine splashback in a new kitchen, Werribee" loading="lazy"></div>
         <div class="prose" data-reveal><h2 class="h4">What we handle in a kitchen renovation</h2><p>Kitchen renovations usually bring in floor tiling and splashback tiling as the tiling side of a wider project. Ceramic and mosaic tiles are a common choice for splashbacks — they're straightforward to keep clean and sit well behind a stove or sink — while porcelain or natural stone tiles are the more usual pick for kitchen floors.</p><p class="note"><strong>Worth noting:</strong> cabinetry, plumbing, electrical work and appliance installation are specialist trades outside our tiling and surface-preparation work. What's included in the wider renovation depends on the agreed scope of the job.</p></div>
         <div class="prose" data-reveal><h2 class="h4">Splashback and floor tiling</h2><p>Splashback tiling is one of the more visible parts of a kitchen renovation, so the set-out around powerpoints, the stove and the sink gets worked out before installation starts. Tile cuts and grout lines are considered as part of the layout rather than left to the end. Floor tiling across a kitchen needs a properly prepared and suitable substrate, particularly where it ties in with an adjoining living or dining area at the same floor height.</p></div>
         <div class="prose" data-reveal><h2 class="h4">Preparing surfaces for kitchen tiling</h2><p>The surface underneath the tiles matters just as much as the tiles themselves. Before installation, we check that the substrate is suitable, deal with preparation requirements and make sure the finished tile surface will work with surrounding floors, walls and cabinetry.</p></div>
@@ -128,8 +128,10 @@
       <div class="footer__bottom">
         <p>&copy; <span data-year>2026</span> Top Tier Tiling Group. ABN 18 621 525 687.</p>
         <p><a href="privacy-policy.html">Privacy Policy</a> · <a href="terms.html">Terms</a> · <a href="image-credits.html">Image credits</a></p>
+        <p class="footer__credit">Developed by <a href="https://www.novareachsolutions.com/" target="_blank" rel="noopener">NovaReach Solutions</a></p>
       </div>
     </div>
+    <p class="footer__mark" aria-hidden="true">Top Tier</p>
   </footer>
 
   <div class="mobile-bar">
@@ -137,6 +139,10 @@
     <a href="contact.html" class="mobile-bar__quote">Request a Quote</a>
   </div>
 
-  <script src="js/main.js"></script>
+  <script src="js/vendor/gsap.min.js" defer></script>
+  <script src="js/vendor/ScrollTrigger.min.js" defer></script>
+  <script src="js/vendor/lenis.min.js" defer></script>
+  <script src="js/vendor/motion.js" defer></script>
+  <script src="js/main.js" defer></script>
 </body>
 </html>

@@ -11,7 +11,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&amp;display=swap">
   <link rel="stylesheet" href="css/style.css">
-  <script>document.documentElement.classList.add('js')</script>
+  <script>document.documentElement.classList.add('js');try{var d=document.documentElement;if(!matchMedia('(prefers-reduced-motion: reduce)').matches){if(sessionStorage.getItem('tt-transition'))d.classList.add('is-entering');else if(!sessionStorage.getItem('tt-intro'))d.classList.add('is-entering','is-intro')}}catch(e){}</script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -55,7 +55,7 @@
           <div class="prose"><p class="eyebrow">/Renovations</p><h1 class="h2">Bathroom Renovations in Melbourne</h1><p class="lead">Screeding, waterproofing and tiling handled as one coordinated job — not three separate trades landing on site in whatever order suits them.</p></div>
           <div class="actions"><a href="contact.html" class="btn btn--dark"><span class="btn__label"><span>Request a Quote</span><span aria-hidden="true">Request a Quote</span></span><span class="btn__icon"><img src="public/icons/arrow-up-right.svg" alt=""></span></a><a href="tel:0423626044" class="btn btn--ghost"><span class="btn__label"><span>Call 0423 626 044</span><span aria-hidden="true">Call 0423 626 044</span></span><span class="btn__icon btn__icon--still"><img src="public/icons/phone.svg" alt=""></span></a></div>
         </div>
-        <div class="media" data-reveal><img src="public/images/bathroom-in-progress.jpg" alt="Shower recess mid-renovation with the floor stripped back" loading="lazy"></div>
+        <div class="media" data-reveal><img src="public/images/work-curved-wall-tiling.jpg" alt="Curved shower wall part-way through tiling, with levelling clips in place" loading="lazy"></div>
         <div class="prose" data-reveal><h2 class="h4">Planning a bathroom renovation</h2><p>A bathroom renovation usually starts with working out what's actually being replaced, and what condition the existing floor and walls are in underneath the surface finishes. Once that's clear, the job moves through preparation, screeding, waterproofing and tiling toward the finished result.</p><p>We coordinate the tiling, screeding and waterproofing sequence directly, while specialist trades such as plumbers, electricians and cabinetmakers handle the work outside our scope where required.</p></div>
       </div>
     </div>
@@ -73,7 +73,7 @@
   <section class="section">
     <div class="container">
       <div class="article">
-        <div class="media" data-reveal><img src="public/images/bathroom-completed.jpg" alt="Completed bathroom finished in marble tiles" loading="lazy"></div>
+        <div class="media" data-reveal><img src="public/images/work-stone-ledge.jpg" alt="Stone-look wall tiles finished with a mitred ledge" loading="lazy"></div>
         <div class="prose" data-reveal><h2 class="h4">Bathroom tiling and wet-area work</h2><p>Bathroom tiling covers the shower recess, floor, and any feature or splashback areas, using ceramic, porcelain, mosaic or natural stone tiles depending on what suits the space. Wall tiling and floor tiling require different considerations. Floors need the correct levels and falls for drainage, while wall tiling involves careful set-out, tile cuts and clean finishing around shower fittings, niches and other fixtures.</p><p class="note"><strong>Worth noting:</strong> plumbing, electrical work and cabinetry are specialist trades outside tiling, screeding and waterproofing. Whether these are included depends on what's agreed for the particular job.</p></div>
         <div class="prose" data-reveal><h2 class="h4">What we can help with</h2><p>Our bathroom renovation work covers the tiling, screeding and waterproofing stages of the job. We can work with your existing layout or as part of a larger renovation, depending on what's required.</p><p>If plumbing, electrical work, cabinetry or other specialist trades are involved, we'll clarify what's included in the scope before work begins.</p></div>
         <div class="callout" data-reveal><h2 class="h4">What to think about before you call</h2><p>A rough idea of what's changing (full strip-out, or working with the existing layout), whether the shower, bath or vanity are moving, and any tiles you've already got your eye on. None of this needs to be locked in before we talk — it just helps to have a starting point.</p></div>
@@ -146,8 +146,10 @@
       <div class="footer__bottom">
         <p>&copy; <span data-year>2026</span> Top Tier Tiling Group. ABN 18 621 525 687.</p>
         <p><a href="privacy-policy.html">Privacy Policy</a> · <a href="terms.html">Terms</a> · <a href="image-credits.html">Image credits</a></p>
+        <p class="footer__credit">Developed by <a href="https://www.novareachsolutions.com/" target="_blank" rel="noopener">NovaReach Solutions</a></p>
       </div>
     </div>
+    <p class="footer__mark" aria-hidden="true">Top Tier</p>
   </footer>
 
   <div class="mobile-bar">
@@ -155,6 +157,10 @@
     <a href="contact.html" class="mobile-bar__quote">Request a Quote</a>
   </div>
 
-  <script src="js/main.js"></script>
+  <script src="js/vendor/gsap.min.js" defer></script>
+  <script src="js/vendor/ScrollTrigger.min.js" defer></script>
+  <script src="js/vendor/lenis.min.js" defer></script>
+  <script src="js/vendor/motion.js" defer></script>
+  <script src="js/main.js" defer></script>
 </body>
 </html>

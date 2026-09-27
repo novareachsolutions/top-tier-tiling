@@ -11,12 +11,12 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&amp;display=swap">
   <link rel="stylesheet" href="css/style.css">
-  <script>document.documentElement.classList.add('js')</script>
+  <script>document.documentElement.classList.add('js');try{var d=document.documentElement;if(!matchMedia('(prefers-reduced-motion: reduce)').matches){if(sessionStorage.getItem('tt-transition'))d.classList.add('is-entering');else if(!sessionStorage.getItem('tt-intro'))d.classList.add('is-entering','is-intro')}}catch(e){}</script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
   <header class="banner">
-    <div class="banner__bg"><img src="public/images/banner-about.jpg" alt=""></div>
+    <div class="banner__bg"><img src="public/images/banner-about-cobblestone.jpg" alt="" fetchpriority="high"></div>
     <div class="container">
       <nav class="navbar" aria-label="Main">
         <a href="index.html" class="logo" aria-label="Top Tier Tiling Group home">
@@ -68,7 +68,7 @@
           <p>Top Tier Tiling Group is a sole trader tiling and renovation business based in Melbourne, operating since 2017. The team of five covers tiling, waterproofing, screeding, bathroom renovations, laundry renovations and kitchen renovations for residential properties — individual trade jobs as well as larger renovation projects.</p>
           <p>We supply ceramic, porcelain, mosaic and natural stone tiles as part of our tiling work, alongside the waterproofing and screeding needed to prepare wet areas properly before the tiles go down.</p>
         </div>
-        <div class="media" data-reveal><img src="public/images/team-workmanship.jpg" alt="Tiler laying floor tiles" loading="lazy"></div>
+        <div class="media" data-reveal><img src="public/images/proj-natural-stone-clifton-springs.jpg" alt="Natural stone feature wall in an alfresco area, Clifton Springs" loading="lazy"></div>
       </div>
       <div class="stats" data-stagger style="margin-top:64px">
         <div class="stat"><p class="stat__num">Est. 2017</p><p class="stat__label">Operating history</p></div>
@@ -149,8 +149,10 @@
       <div class="footer__bottom">
         <p>&copy; <span data-year>2026</span> Top Tier Tiling Group. ABN 18 621 525 687.</p>
         <p><a href="privacy-policy.html">Privacy Policy</a> · <a href="terms.html">Terms</a> · <a href="image-credits.html">Image credits</a></p>
+        <p class="footer__credit">Developed by <a href="https://www.novareachsolutions.com/" target="_blank" rel="noopener">NovaReach Solutions</a></p>
       </div>
     </div>
+    <p class="footer__mark" aria-hidden="true">Top Tier</p>
   </footer>
 
   <div class="mobile-bar">
@@ -158,6 +160,10 @@
     <a href="contact.html" class="mobile-bar__quote">Request a Quote</a>
   </div>
 
-  <script src="js/main.js"></script>
+  <script src="js/vendor/gsap.min.js" defer></script>
+  <script src="js/vendor/ScrollTrigger.min.js" defer></script>
+  <script src="js/vendor/lenis.min.js" defer></script>
+  <script src="js/vendor/motion.js" defer></script>
+  <script src="js/main.js" defer></script>
 </body>
 </html>

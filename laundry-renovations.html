@@ -11,7 +11,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&amp;display=swap">
   <link rel="stylesheet" href="css/style.css">
-  <script>document.documentElement.classList.add('js')</script>
+  <script>document.documentElement.classList.add('js');try{var d=document.documentElement;if(!matchMedia('(prefers-reduced-motion: reduce)').matches){if(sessionStorage.getItem('tt-transition'))d.classList.add('is-entering');else if(!sessionStorage.getItem('tt-intro'))d.classList.add('is-entering','is-intro')}}catch(e){}</script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -55,7 +55,7 @@
           <div class="prose"><p class="eyebrow">/Renovations</p><h1 class="h2">Laundry Renovations in Melbourne</h1><p class="lead">Floor preparation, waterproofing and tiling handled as one job, for a laundry that's built to cope with daily use, not just look good on day one.</p></div>
           <div class="actions"><a href="contact.html" class="btn btn--dark"><span class="btn__label"><span>Request a Quote</span><span aria-hidden="true">Request a Quote</span></span><span class="btn__icon"><img src="public/icons/arrow-up-right.svg" alt=""></span></a><a href="tel:0423626044" class="btn btn--ghost"><span class="btn__label"><span>Call 0423 626 044</span><span aria-hidden="true">Call 0423 626 044</span></span><span class="btn__icon btn__icon--still"><img src="public/icons/phone.svg" alt=""></span></a></div>
         </div>
-        <div class="media" data-reveal><img src="public/images/laundry-renovation.jpg" alt="Laundry room with a durable tiled floor" loading="lazy"></div>
+        <div class="media" data-reveal><img src="public/images/svc-laundry.jpg" alt="Renovated laundry with large-format floor tiles and a vertical tiled splashback" loading="lazy"></div>
         <div class="prose" data-reveal><h2 class="h4">What a laundry renovation involves</h2><p>Laundries deal with water every day, from washing machines and troughs to general cleaning and spills. That means the floor and relevant wet-area wall surfaces need to be properly prepared, with waterproofing and tiling carried out where required.</p><p>The same principles apply as in a bathroom, although the scope is often smaller. Floor levels and falls toward the waste are particularly important where a floor waste is present.</p><p>Where a floor waste is present, its position and the floor falls need to be considered so water can drain correctly. This becomes particularly useful in laundries that also serve as mud rooms or utility areas.</p></div>
       </div>
     </div>
@@ -145,8 +145,10 @@
       <div class="footer__bottom">
         <p>&copy; <span data-year>2026</span> Top Tier Tiling Group. ABN 18 621 525 687.</p>
         <p><a href="privacy-policy.html">Privacy Policy</a> · <a href="terms.html">Terms</a> · <a href="image-credits.html">Image credits</a></p>
+        <p class="footer__credit">Developed by <a href="https://www.novareachsolutions.com/" target="_blank" rel="noopener">NovaReach Solutions</a></p>
       </div>
     </div>
+    <p class="footer__mark" aria-hidden="true">Top Tier</p>
   </footer>
 
   <div class="mobile-bar">
@@ -154,6 +156,10 @@
     <a href="contact.html" class="mobile-bar__quote">Request a Quote</a>
   </div>
 
-  <script src="js/main.js"></script>
+  <script src="js/vendor/gsap.min.js" defer></script>
+  <script src="js/vendor/ScrollTrigger.min.js" defer></script>
+  <script src="js/vendor/lenis.min.js" defer></script>
+  <script src="js/vendor/motion.js" defer></script>
+  <script src="js/main.js" defer></script>
 </body>
 </html>

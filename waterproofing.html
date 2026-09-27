@@ -11,7 +11,7 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Figtree:wght@400;500;600;700&amp;display=swap">
   <link rel="stylesheet" href="css/style.css">
-  <script>document.documentElement.classList.add('js')</script>
+  <script>document.documentElement.classList.add('js');try{var d=document.documentElement;if(!matchMedia('(prefers-reduced-motion: reduce)').matches){if(sessionStorage.getItem('tt-transition'))d.classList.add('is-entering');else if(!sessionStorage.getItem('tt-intro'))d.classList.add('is-entering','is-intro')}}catch(e){}</script>
 </head>
 <body>
   <a class="skip-link" href="#main">Skip to content</a>
@@ -55,7 +55,7 @@
           <div class="prose"><p class="eyebrow">/Trade services</p><h1 class="h2">Waterproofing Services in Melbourne</h1><p class="lead">Membrane waterproofing for bathrooms, showers and laundries, prepared and applied before tiling as part of a standalone job or wider renovation.</p></div>
           <div class="actions"><a href="contact.html" class="btn btn--dark"><span class="btn__label"><span>Request a Quote</span><span aria-hidden="true">Request a Quote</span></span><span class="btn__icon"><img src="public/icons/arrow-up-right.svg" alt=""></span></a><a href="tel:0423626044" class="btn btn--ghost"><span class="btn__label"><span>Call 0423 626 044</span><span aria-hidden="true">Call 0423 626 044</span></span><span class="btn__icon btn__icon--still"><img src="public/icons/phone.svg" alt=""></span></a></div>
         </div>
-        <div class="media" data-reveal><img src="public/images/waterproofing-membrane.jpg" alt="Flexible waterproofing membrane being applied with a brush" loading="lazy"></div>
+        <div class="media" data-reveal><img src="public/images/svc-waterproofing-membrane.jpg" alt="Waterproofing membrane applied to a shower recess, with bandage tape in the corners" loading="lazy"></div>
         <div class="prose" data-reveal><h2 class="h4">Why it matters</h2><p>Bathrooms and laundries are wet almost every day. Once the tiles are down, waterproofing is the part of the job you can't see and won't think about again — an important part of protecting the room from water penetration once the tiling is finished.</p><p>The membrane forms a water-resistant barrier beneath the finished tile surface, helping prevent water from reaching the underlying structure. It sits between surface preparation and tiling: the substrate is prepared and screeded where needed first, then the waterproofing membrane goes on, then tiling happens over the top once it's cured.</p></div>
       </div>
     </div>
@@ -73,7 +73,7 @@
   <section class="section">
     <div class="container">
       <div class="article">
-        <div class="media" data-reveal><img src="public/images/waterproofing-shower-recess.jpg" alt="Completed walk-in shower recess" loading="lazy"></div>
+        <div class="media" data-reveal><img src="public/images/proj-strip-drain-hawthorn.jpg" alt="Wet-area floor tiled to a tile insert strip drain, Hawthorn" loading="lazy"></div>
         <div class="prose" data-reveal><h2 class="h4">Bathrooms and laundries</h2><p>Shower recesses, bathroom floors and laundry floors are where waterproofing matters most — anywhere water sits or runs across the floor regularly. Corners, wall-floor junctions, penetrations and floor wastes all need careful detailing as part of the waterproofing system.</p><p>Getting this step right is what keeps water out of the surrounding structure over the long run — it's not something worth cutting corners on to save a day.</p></div>
         <div class="callout" data-reveal><h2 class="h4">Standalone job or part of a renovation</h2><p>Waterproofing can be booked on its own — re-waterproofing a shower recess before re-tiling, for example — or as part of a full bathroom or laundry renovation where it's one stage among several. Either way, it needs to happen before tiling, not after.</p></div>
         <div class="prose" data-reveal><h2 class="h4">Waterproofing and compliance</h2><p>Waterproofing in wet areas needs to be installed in accordance with the applicable requirements for the job. The relevant areas are prepared, waterproofed and allowed to cure before tiling begins.</p></div>
@@ -142,8 +142,10 @@
       <div class="footer__bottom">
         <p>&copy; <span data-year>2026</span> Top Tier Tiling Group. ABN 18 621 525 687.</p>
         <p><a href="privacy-policy.html">Privacy Policy</a> · <a href="terms.html">Terms</a> · <a href="image-credits.html">Image credits</a></p>
+        <p class="footer__credit">Developed by <a href="https://www.novareachsolutions.com/" target="_blank" rel="noopener">NovaReach Solutions</a></p>
       </div>
     </div>
+    <p class="footer__mark" aria-hidden="true">Top Tier</p>
   </footer>
 
   <div class="mobile-bar">
@@ -151,6 +153,10 @@
     <a href="contact.html" class="mobile-bar__quote">Request a Quote</a>
   </div>
 
-  <script src="js/main.js"></script>
+  <script src="js/vendor/gsap.min.js" defer></script>
+  <script src="js/vendor/ScrollTrigger.min.js" defer></script>
+  <script src="js/vendor/lenis.min.js" defer></script>
+  <script src="js/vendor/motion.js" defer></script>
+  <script src="js/main.js" defer></script>
 </body>
 </html>

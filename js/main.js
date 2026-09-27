@@ -466,7 +466,8 @@
       }
       const scrub = { trigger: section, start: 'top 95%', end: 'top 10%', scrub: true };
       const inset = window.innerWidth < 768 ? '8% 6% 8% 6%' : '14% 18% 14% 18%';
-      gsap.fromTo(media, { clipPath: `inset(${inset} round 32px)` }, { clipPath: 'inset(0% 0% 0% 0% round 32px)', ease: 'none', scrollTrigger: scrub });
+      const r = radius(media);
+      gsap.fromTo(media, { clipPath: `inset(${inset} round ${r})` }, { clipPath: `inset(0% 0% 0% 0% round ${r})`, ease: 'none', scrollTrigger: scrub });
       gsap.fromTo(img, { scale: 1.35 }, { scale: 1, ease: 'none', scrollTrigger: scrub });
       gsap.fromTo(img, { yPercent: 0 }, {
         yPercent: 8, ease: 'none',
@@ -494,8 +495,9 @@
     /* ---- Desktop: dark panels widen to full frame as they arrive ---- */
     mm.add('(min-width: 992px)', () => {
       $$('.section--dark').forEach((section) => {
-        gsap.fromTo(section, { clipPath: 'inset(0% 4% 0% 4% round 48px)' }, {
-          clipPath: 'inset(0% 0% 0% 0% round 32px)', ease: 'none',
+        const r = radius(section);
+        gsap.fromTo(section, { clipPath: `inset(0% 4% 0% 4% round ${r})` }, {
+          clipPath: `inset(0% 0% 0% 0% round ${r})`, ease: 'none',
           scrollTrigger: { trigger: section, start: 'top bottom', end: 'top 30%', scrub: true },
         });
       });

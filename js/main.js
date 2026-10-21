@@ -9,6 +9,8 @@
   const $ = (selector, root = document) => root.querySelector(selector);
   const $$ = (selector, root = document) => [...root.querySelectorAll(selector)];
   const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  // Site root, worked out from this script's own URL (js/main.js), so asset paths work from any folder.
+  const ROOT = document.currentScript ? new URL('../', document.currentScript.src).href : '';
   const refreshScroll = () => { if (window.ScrollTrigger) window.ScrollTrigger.refresh(); };
   const entering = document.documentElement.classList.contains('is-entering');
 
@@ -679,7 +681,7 @@
     const curtain = document.createElement('div');
     curtain.className = 'page-curtain';
     curtain.setAttribute('aria-hidden', 'true');
-    curtain.innerHTML = '<div class="page-curtain__brand"><img src="public/images/logo-horizontal.png" alt="" width="1000" height="352"><span class="page-curtain__line"></span></div>';
+    curtain.innerHTML = `<div class="page-curtain__brand"><img src="${ROOT}public/images/logo-horizontal.png" alt="" width="1000" height="352"><span class="page-curtain__line"></span></div>`;
     document.body.append(curtain);
     const brand = $('.page-curtain__brand', curtain);
     const line = $('.page-curtain__line', curtain);

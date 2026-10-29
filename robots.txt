@@ -1,4 +1,28 @@
+# robots.txt for https://www.toptiertiling.au/
+
+# --- All crawlers (Googlebot, Bingbot, etc.) ---
 User-agent: *
+Allow: /
+
+# --- AI search & answer engines (cite/link the site in AI answers) ---
+User-agent: OAI-SearchBot
+User-agent: ChatGPT-User
+User-agent: Claude-SearchBot
+User-agent: Claude-User
+User-agent: PerplexityBot
+User-agent: Perplexity-User
+User-agent: DuckAssistBot
+User-agent: MistralAI-User
+Allow: /
+
+# --- AI model training crawlers ---
+User-agent: GPTBot
+User-agent: ClaudeBot
+User-agent: Google-Extended
+User-agent: Applebot-Extended
+User-agent: CCBot
+User-agent: Meta-ExternalAgent
+User-agent: Amazonbot
 Allow: /
 
 Sitemap: https://www.toptiertiling.au/sitemap.xml

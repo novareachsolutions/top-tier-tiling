@@ -1,98 +1,70 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
   <url>
-    <loc>https://www.toptiertiling.au/</loc>
-    <lastmod>2026-10-21</lastmod>
-    <priority>1.0</priority>
+       <loc>https://www.toptiertiling.au/</loc>
+       <lastmod>2026-10-21T11:42:34+00:00</lastmod>
+       <priority>1.0000</priority>
   </url>
   <url>
-    <loc>https://www.toptiertiling.au/services.html</loc>
-    <lastmod>2026-10-21</lastmod>
-    <priority>0.9</priority>
+       <loc>https://www.toptiertiling.au/services/tiling.html</loc>
+       <lastmod>2026-10-21T11:42:34+00:00</lastmod>
+       <priority>0.8000</priority>
   </url>
   <url>
-    <loc>https://www.toptiertiling.au/services/bathroom-renovations.html</loc>
-    <lastmod>2026-10-21</lastmod>
-    <priority>0.8</priority>
+       <loc>https://www.toptiertiling.au/services/waterproofing.html</loc>
+       <lastmod>2026-10-21T11:42:34+00:00</lastmod>
+       <priority>0.8000</priority>
   </url>
   <url>
-    <loc>https://www.toptiertiling.au/services/kitchen-renovations.html</loc>
-    <lastmod>2026-10-21</lastmod>
-    <priority>0.8</priority>
+       <loc>https://www.toptiertiling.au/services/screeding.html</loc>
+       <lastmod>2026-10-21T11:42:34+00:00</lastmod>
+       <priority>0.8000</priority>
   </url>
   <url>
-    <loc>https://www.toptiertiling.au/services/laundry-renovations.html</loc>
-    <lastmod>2026-10-21</lastmod>
-    <priority>0.8</priority>
+       <loc>https://www.toptiertiling.au/services/bathroom-renovations.html</loc>
+       <lastmod>2026-10-21T11:42:34+00:00</lastmod>
+       <priority>0.8000</priority>
   </url>
   <url>
-    <loc>https://www.toptiertiling.au/services/screeding.html</loc>
-    <lastmod>2026-10-21</lastmod>
-    <priority>0.8</priority>
+       <loc>https://www.toptiertiling.au/services/laundry-renovations.html</loc>
+       <lastmod>2026-10-21T11:42:34+00:00</lastmod>
+       <priority>0.8000</priority>
   </url>
   <url>
-    <loc>https://www.toptiertiling.au/services/tiling.html</loc>
-    <lastmod>2026-10-21</lastmod>
-    <priority>0.8</priority>
+       <loc>https://www.toptiertiling.au/services/kitchen-renovations.html</loc>
+       <lastmod>2026-10-21T11:42:34+00:00</lastmod>
+       <priority>0.8000</priority>
   </url>
   <url>
-    <loc>https://www.toptiertiling.au/services/waterproofing.html</loc>
-    <lastmod>2026-10-21</lastmod>
-    <priority>0.8</priority>
+       <loc>https://www.toptiertiling.au/services.html</loc>
+       <lastmod>2026-10-21T11:42:34+00:00</lastmod>
+       <priority>0.8000</priority>
   </url>
   <url>
-    <loc>https://www.toptiertiling.au/projects.html</loc>
-    <lastmod>2026-10-21</lastmod>
-    <priority>0.8</priority>
+       <loc>https://www.toptiertiling.au/contact.html</loc>
+       <lastmod>2026-10-21T11:42:34+00:00</lastmod>
+       <priority>0.8000</priority>
   </url>
   <url>
-    <loc>https://www.toptiertiling.au/project-fan-cobblestone-driveway.html</loc>
-    <lastmod>2026-10-21</lastmod>
-    <priority>0.6</priority>
+       <loc>https://www.toptiertiling.au/projects.html</loc>
+       <lastmod>2026-10-21T11:42:34+00:00</lastmod>
+       <priority>0.8000</priority>
   </url>
   <url>
-    <loc>https://www.toptiertiling.au/project-natural-stone.html</loc>
-    <lastmod>2026-10-21</lastmod>
-    <priority>0.6</priority>
+       <loc>https://www.toptiertiling.au/about.html</loc>
+       <lastmod>2026-10-21T11:42:34+00:00</lastmod>
+       <priority>0.8000</priority>
   </url>
   <url>
-    <loc>https://www.toptiertiling.au/project-pedestal-pavers.html</loc>
-    <lastmod>2026-10-21</lastmod>
-    <priority>0.6</priority>
+       <loc>https://www.toptiertiling.au/privacy-policy.html</loc>
+       <lastmod>2026-10-21T11:42:34+00:00</lastmod>
+       <priority>0.8000</priority>
   </url>
   <url>
-    <loc>https://www.toptiertiling.au/project-tile-insert-strip-drain.html</loc>
-    <lastmod>2026-10-21</lastmod>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.toptiertiling.au/project-travertine-splashback.html</loc>
-    <lastmod>2026-10-21</lastmod>
-    <priority>0.6</priority>
-  </url>
-  <url>
-    <loc>https://www.toptiertiling.au/about.html</loc>
-    <lastmod>2026-10-21</lastmod>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.toptiertiling.au/contact.html</loc>
-    <lastmod>2026-10-21</lastmod>
-    <priority>0.8</priority>
-  </url>
-  <url>
-    <loc>https://www.toptiertiling.au/privacy-policy.html</loc>
-    <lastmod>2026-10-21</lastmod>
-    <priority>0.3</priority>
-  </url>
-  <url>
-    <loc>https://www.toptiertiling.au/terms.html</loc>
-    <lastmod>2026-10-21</lastmod>
-    <priority>0.3</priority>
-  </url>
-  <url>
-    <loc>https://www.toptiertiling.au/image-credits.html</loc>
-    <lastmod>2026-10-21</lastmod>
-    <priority>0.3</priority>
-  </url>
+       <loc>https://www.toptiertiling.au/terms.html</loc>
+       <lastmod>2026-10-21T11:42:34+00:00</lastmod>
+       <priority>0.8000</priority>
+  </url> 
 </urlset>
